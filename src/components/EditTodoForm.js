@@ -19,7 +19,8 @@ class EditTodoForm extends Component {
   onFormSubmit(event) {
     console.log('form update')
     event.preventDefault()
-    this.props.onUpdateTodo(this.state.updatedTodoBody, this.props.todo._id)
+    console.log(this.props._id);
+    this.props.onUpdateTodo(this.state.updatedTodoBody, this.props._id)
     this.setState({
       updatedTodoBody:''
     })
@@ -27,7 +28,7 @@ class EditTodoForm extends Component {
 
   render(){
     return (
-      <div className='editTodoForm' data-todos-index={this.props.todo._id}>
+      <div className='editTodoForm' >
         <form onSubmit ={event => this.onFormSubmit(event)}>
           <input 
             onChange = {event =>this.onInputChange(event)}

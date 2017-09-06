@@ -44,12 +44,17 @@ class TodosContainer extends Component {
 		  this.setState({todos})
 		})
 	}
-	updateTodo(todo){
+	updateTodo(todo,id){
 		console.log('updating todo', todo)
+		let newTodo = {
+			_id :id,
+			body: todo,
+			completed:false
+
+		} 
 		TodoModel.update(todo).then((res)=>{
 		  let todos = this.state.todos.filter(function(todo) {
-		  	if(todo._id == res._id) {todo.body = res.body}
-		  	return todos;
+		  	return todo._id == res._id
 		  });
 		  this.setState({todos})
 		})

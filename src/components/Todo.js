@@ -16,7 +16,7 @@ class Todo extends Component {
 			        </span>
 				</p>
 				<EditTodoForm 
-				data-todos-index = {this.props.todo._id}
+				id = {this.props.todo._id}
 				onUpdateTodo={this.props.onUpdateTodo}/>
 			</div>
 		)
