@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 
+
 class EditTodoForm extends Component {
   constructor(){
     //use Component's constructor
@@ -15,10 +16,10 @@ class EditTodoForm extends Component {
     this.setState({ updatedTodoBody : event.target.value})
   }
 
-  onFormUpdate(event) {
+  onFormSubmit(event) {
     console.log('form update')
     event.preventDefault()
-    this.props.onUpdateTodo(this.state.updatedTodoBody)
+    this.props.onUpdateTodo(this.state.updatedTodoBody, this.props.todo._id)
     this.setState({
       updatedTodoBody:''
     })
@@ -26,8 +27,8 @@ class EditTodoForm extends Component {
 
   render(){
     return (
-      <div className='editTodoForm'>
-        <form onSubmit ={event => this.onFormUpdate(event)}>
+      <div className='editTodoForm' data-todos-index={this.props.todo._id}>
+        <form onSubmit ={event => this.onFormSubmit(event)}>
           <input 
             onChange = {event =>this.onInputChange(event)}
             placeholder='Write updated todo here...'

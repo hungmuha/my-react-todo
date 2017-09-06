@@ -3,6 +3,7 @@ import TodoModel from '../models/Todo'
 import TodoList from '../components/TodoList'
 import CreateTodoForm  from'../components/CreateTodoForm'
 
+
 class TodosContainer extends Component {
   constructor(){
     super()
@@ -46,7 +47,11 @@ class TodosContainer extends Component {
 	updateTodo(todo){
 		console.log('updating todo', todo)
 		TodoModel.update(todo).then((res)=>{
-		  
+		  let todos = this.state.todos.filter(function(todo) {
+		  	if(todo._id == res._id) {todo.body = res.body}
+		  	return todos;
+		  });
+		  this.setState({todos})
 		})
 	}
 	render(){
