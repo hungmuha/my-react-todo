@@ -28,7 +28,7 @@ class TodoModel {
 		    url: "https://super-crud.herokuapp.com/todos/"+todo._id,
 		    method: 'PUT',
 		    data: {
-		    	_id : todo._id,
+		    	_id : todo.id,
 		    	body: todo.body
 		    }
 		  })

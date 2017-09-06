@@ -19,8 +19,8 @@ class EditTodoForm extends Component {
   onFormSubmit(event) {
     console.log('form update')
     event.preventDefault()
-    console.log(this.props._id);
-    this.props.onUpdateTodo(this.state.updatedTodoBody, this.props._id)
+    console.log(this.props.id);
+    this.props.onUpdateTodo(this.state.updatedTodoBody, this.props.id)
     this.setState({
       updatedTodoBody:''
     })

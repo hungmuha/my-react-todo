@@ -46,13 +46,14 @@ class TodosContainer extends Component {
 	}
 	updateTodo(todo,id){
 		console.log('updating todo', todo)
+		console.log(id);
 		let newTodo = {
 			_id :id,
 			body: todo,
 			completed:false
 
 		} 
-		TodoModel.update(todo).then((res)=>{
+		TodoModel.update(newTodo).then((res)=>{
 		  let todos = this.state.todos.filter(function(todo) {
 		  	return todo._id == res._id
 		  });
